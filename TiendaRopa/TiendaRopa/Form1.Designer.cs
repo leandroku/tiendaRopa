@@ -45,10 +45,10 @@ namespace TiendaRopa
             this.Talla = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Color = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btNuevo = new System.Windows.Forms.Button();
             this.btAgregar = new System.Windows.Forms.Button();
             this.btActualizar = new System.Windows.Forms.Button();
             this.btEliminar = new System.Windows.Forms.Button();
+            this.btNuevo = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvListaPrendas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -196,46 +196,60 @@ namespace TiendaRopa
             this.Precio.Name = "Precio";
             this.Precio.Width = 125;
             // 
-            // btNuevo
-            // 
-            this.btNuevo.Location = new System.Drawing.Point(336, 65);
-            this.btNuevo.Name = "btNuevo";
-            this.btNuevo.Size = new System.Drawing.Size(75, 23);
-            this.btNuevo.TabIndex = 11;
-            this.btNuevo.Text = "Nuevo";
-            this.btNuevo.UseVisualStyleBackColor = true;
-            // 
             // btAgregar
             // 
-            this.btAgregar.Location = new System.Drawing.Point(336, 109);
+            this.btAgregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btAgregar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btAgregar.ForeColor = System.Drawing.SystemColors.Window;
+            this.btAgregar.Location = new System.Drawing.Point(336, 144);
             this.btAgregar.Name = "btAgregar";
-            this.btAgregar.Size = new System.Drawing.Size(75, 23);
+            this.btAgregar.Size = new System.Drawing.Size(151, 61);
             this.btAgregar.TabIndex = 12;
             this.btAgregar.Text = "Agregar";
-            this.btAgregar.UseVisualStyleBackColor = true;
+            this.btAgregar.UseVisualStyleBackColor = false;
             // 
             // btActualizar
             // 
-            this.btActualizar.Location = new System.Drawing.Point(436, 65);
+            this.btActualizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btActualizar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btActualizar.ForeColor = System.Drawing.SystemColors.Window;
+            this.btActualizar.Location = new System.Drawing.Point(522, 65);
             this.btActualizar.Name = "btActualizar";
-            this.btActualizar.Size = new System.Drawing.Size(75, 23);
+            this.btActualizar.Size = new System.Drawing.Size(151, 61);
             this.btActualizar.TabIndex = 13;
             this.btActualizar.Text = "Actualizar";
-            this.btActualizar.UseVisualStyleBackColor = true;
+            this.btActualizar.UseVisualStyleBackColor = false;
             // 
             // btEliminar
             // 
-            this.btEliminar.Location = new System.Drawing.Point(436, 109);
+            this.btEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btEliminar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btEliminar.ForeColor = System.Drawing.SystemColors.Window;
+            this.btEliminar.Location = new System.Drawing.Point(522, 144);
             this.btEliminar.Name = "btEliminar";
-            this.btEliminar.Size = new System.Drawing.Size(75, 23);
+            this.btEliminar.Size = new System.Drawing.Size(151, 61);
             this.btEliminar.TabIndex = 14;
             this.btEliminar.Text = "Eliminar";
-            this.btEliminar.UseVisualStyleBackColor = true;
+            this.btEliminar.UseVisualStyleBackColor = false;
+            // 
+            // btNuevo
+            // 
+            this.btNuevo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btNuevo.FlatAppearance.BorderSize = 2;
+            this.btNuevo.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btNuevo.ForeColor = System.Drawing.SystemColors.Window;
+            this.btNuevo.Location = new System.Drawing.Point(336, 65);
+            this.btNuevo.Name = "btNuevo";
+            this.btNuevo.Size = new System.Drawing.Size(151, 61);
+            this.btNuevo.TabIndex = 11;
+            this.btNuevo.Text = "Nuevo";
+            this.btNuevo.UseVisualStyleBackColor = false;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.ClientSize = new System.Drawing.Size(723, 450);
             this.Controls.Add(this.btEliminar);
             this.Controls.Add(this.btActualizar);
@@ -278,10 +292,10 @@ namespace TiendaRopa
         private System.Windows.Forms.DataGridViewTextBoxColumn Talla;
         private System.Windows.Forms.DataGridViewTextBoxColumn Color;
         private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
-        private System.Windows.Forms.Button btNuevo;
         private System.Windows.Forms.Button btAgregar;
         private System.Windows.Forms.Button btActualizar;
         private System.Windows.Forms.Button btEliminar;
+        private System.Windows.Forms.Button btNuevo;
     }
 }
 

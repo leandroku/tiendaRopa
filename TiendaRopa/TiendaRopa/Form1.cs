@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,15 @@ namespace TiendaRopa
 {
     public partial class Form1 : Form
     {
+
+        static int numeroPredas;
+        ArrayList Prendas = new ArrayList();
+
         public Form1()
         {
             InitializeComponent();
         }
+
+      
     }
 }

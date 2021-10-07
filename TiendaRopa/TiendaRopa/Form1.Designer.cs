@@ -121,6 +121,11 @@ namespace TiendaRopa
             // cboTipo
             // 
             this.cboTipo.FormattingEnabled = true;
+            this.cboTipo.Items.AddRange(new object[] {
+            "Juvenil",
+            "Deportiva",
+            "Elegante",
+            "Casual"});
             this.cboTipo.Location = new System.Drawing.Point(23, 65);
             this.cboTipo.Name = "cboTipo";
             this.cboTipo.Size = new System.Drawing.Size(121, 24);

@@ -29,7 +29,6 @@ namespace TiendaRopa
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -40,18 +39,17 @@ namespace TiendaRopa
             this.txtPrecio = new System.Windows.Forms.TextBox();
             this.cboTipo = new System.Windows.Forms.ComboBox();
             this.cboTalla = new System.Windows.Forms.ComboBox();
-            this.btNuevaPrenda = new System.Windows.Forms.Button();
+            this.dgvListaPrendas = new System.Windows.Forms.DataGridView();
+            this.Tipo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Marca = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Talla = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Color = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Precio = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.btAgregar = new System.Windows.Forms.Button();
             this.btActualizar = new System.Windows.Forms.Button();
             this.btEliminar = new System.Windows.Forms.Button();
-            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.errorProvider2 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.label6 = new System.Windows.Forms.Label();
-            this.lblNumeroPrendas = new System.Windows.Forms.Label();
-            this.dgvLista = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).BeginInit();
+            this.btNuevo = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListaPrendas)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -147,92 +145,117 @@ namespace TiendaRopa
             this.cboTalla.Size = new System.Drawing.Size(121, 24);
             this.cboTalla.TabIndex = 9;
             // 
-            // btNuevaPrenda
+            // dgvListaPrendas
             // 
-            this.btNuevaPrenda.Location = new System.Drawing.Point(336, 65);
-            this.btNuevaPrenda.Name = "btNuevaPrenda";
-            this.btNuevaPrenda.Size = new System.Drawing.Size(75, 23);
-            this.btNuevaPrenda.TabIndex = 11;
-            this.btNuevaPrenda.Text = "Nuevo";
-            this.btNuevaPrenda.UseVisualStyleBackColor = true;
-            this.btNuevaPrenda.Click += new System.EventHandler(this.btNuevo_Click);
+            this.dgvListaPrendas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvListaPrendas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Tipo,
+            this.Marca,
+            this.Talla,
+            this.Color,
+            this.Precio});
+            this.dgvListaPrendas.Location = new System.Drawing.Point(23, 244);
+            this.dgvListaPrendas.Name = "dgvListaPrendas";
+            this.dgvListaPrendas.RowHeadersWidth = 51;
+            this.dgvListaPrendas.RowTemplate.Height = 24;
+            this.dgvListaPrendas.Size = new System.Drawing.Size(678, 194);
+            this.dgvListaPrendas.TabIndex = 10;
+            // 
+            // Tipo
+            // 
+            this.Tipo.HeaderText = "Tipo";
+            this.Tipo.MinimumWidth = 6;
+            this.Tipo.Name = "Tipo";
+            this.Tipo.Width = 125;
+            // 
+            // Marca
+            // 
+            this.Marca.HeaderText = "Marca";
+            this.Marca.MinimumWidth = 6;
+            this.Marca.Name = "Marca";
+            this.Marca.Width = 125;
+            // 
+            // Talla
+            // 
+            this.Talla.HeaderText = "Talla";
+            this.Talla.MinimumWidth = 6;
+            this.Talla.Name = "Talla";
+            this.Talla.Width = 125;
+            // 
+            // Color
+            // 
+            this.Color.HeaderText = "Color";
+            this.Color.MinimumWidth = 6;
+            this.Color.Name = "Color";
+            this.Color.Width = 125;
+            // 
+            // Precio
+            // 
+            this.Precio.HeaderText = "Precio";
+            this.Precio.MinimumWidth = 6;
+            this.Precio.Name = "Precio";
+            this.Precio.Width = 125;
             // 
             // btAgregar
             // 
-            this.btAgregar.Location = new System.Drawing.Point(336, 109);
+            this.btAgregar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btAgregar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btAgregar.ForeColor = System.Drawing.SystemColors.Window;
+            this.btAgregar.Location = new System.Drawing.Point(336, 144);
             this.btAgregar.Name = "btAgregar";
-            this.btAgregar.Size = new System.Drawing.Size(75, 23);
+            this.btAgregar.Size = new System.Drawing.Size(151, 61);
             this.btAgregar.TabIndex = 12;
             this.btAgregar.Text = "Agregar";
-            this.btAgregar.UseVisualStyleBackColor = true;
+            this.btAgregar.UseVisualStyleBackColor = false;
             // 
             // btActualizar
             // 
-            this.btActualizar.Location = new System.Drawing.Point(436, 65);
+            this.btActualizar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btActualizar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btActualizar.ForeColor = System.Drawing.SystemColors.Window;
+            this.btActualizar.Location = new System.Drawing.Point(522, 65);
             this.btActualizar.Name = "btActualizar";
-            this.btActualizar.Size = new System.Drawing.Size(75, 23);
+            this.btActualizar.Size = new System.Drawing.Size(151, 61);
             this.btActualizar.TabIndex = 13;
             this.btActualizar.Text = "Actualizar";
-            this.btActualizar.UseVisualStyleBackColor = true;
+            this.btActualizar.UseVisualStyleBackColor = false;
             // 
             // btEliminar
             // 
-            this.btEliminar.Location = new System.Drawing.Point(436, 109);
+            this.btEliminar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btEliminar.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btEliminar.ForeColor = System.Drawing.SystemColors.Window;
+            this.btEliminar.Location = new System.Drawing.Point(522, 144);
             this.btEliminar.Name = "btEliminar";
-            this.btEliminar.Size = new System.Drawing.Size(75, 23);
+            this.btEliminar.Size = new System.Drawing.Size(151, 61);
             this.btEliminar.TabIndex = 14;
             this.btEliminar.Text = "Eliminar";
-            this.btEliminar.UseVisualStyleBackColor = true;
+            this.btEliminar.UseVisualStyleBackColor = false;
             // 
-            // errorProvider1
+            // btNuevo
             // 
-            this.errorProvider1.ContainerControl = this;
-            // 
-            // errorProvider2
-            // 
-            this.errorProvider2.ContainerControl = this;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(355, 186);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(135, 17);
-            this.label6.TabIndex = 15;
-            this.label6.Text = "Numero de Prendas";
-            // 
-            // lblNumeroPrendas
-            // 
-            this.lblNumeroPrendas.AccessibleRole = System.Windows.Forms.AccessibleRole.TitleBar;
-            this.lblNumeroPrendas.AutoSize = true;
-            this.lblNumeroPrendas.Location = new System.Drawing.Point(496, 186);
-            this.lblNumeroPrendas.Name = "lblNumeroPrendas";
-            this.lblNumeroPrendas.Size = new System.Drawing.Size(0, 17);
-            this.lblNumeroPrendas.TabIndex = 16;
-            // 
-            // dgvLista
-            // 
-            this.dgvLista.AllowUserToOrderColumns = true;
-            this.dgvLista.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvLista.Location = new System.Drawing.Point(23, 252);
-            this.dgvLista.Name = "dgvLista";
-            this.dgvLista.RowHeadersWidth = 51;
-            this.dgvLista.RowTemplate.Height = 24;
-            this.dgvLista.Size = new System.Drawing.Size(626, 150);
-            this.dgvLista.TabIndex = 17;
+            this.btNuevo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
+            this.btNuevo.FlatAppearance.BorderSize = 2;
+            this.btNuevo.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btNuevo.ForeColor = System.Drawing.SystemColors.Window;
+            this.btNuevo.Location = new System.Drawing.Point(336, 65);
+            this.btNuevo.Name = "btNuevo";
+            this.btNuevo.Size = new System.Drawing.Size(151, 61);
+            this.btNuevo.TabIndex = 11;
+            this.btNuevo.Text = "Nuevo";
+            this.btNuevo.UseVisualStyleBackColor = false;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.ClientSize = new System.Drawing.Size(723, 450);
-            this.Controls.Add(this.dgvLista);
-            this.Controls.Add(this.lblNumeroPrendas);
-            this.Controls.Add(this.label6);
             this.Controls.Add(this.btEliminar);
             this.Controls.Add(this.btActualizar);
             this.Controls.Add(this.btAgregar);
-            this.Controls.Add(this.btNuevaPrenda);
+            this.Controls.Add(this.btNuevo);
+            this.Controls.Add(this.dgvListaPrendas);
             this.Controls.Add(this.cboTalla);
             this.Controls.Add(this.cboTipo);
             this.Controls.Add(this.txtPrecio);
@@ -245,10 +268,7 @@ namespace TiendaRopa
             this.Controls.Add(this.label1);
             this.Name = "Form1";
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvListaPrendas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -266,15 +286,16 @@ namespace TiendaRopa
         private System.Windows.Forms.TextBox txtPrecio;
         private System.Windows.Forms.ComboBox cboTipo;
         private System.Windows.Forms.ComboBox cboTalla;
-        private System.Windows.Forms.Button btNuevaPrenda;
+        private System.Windows.Forms.DataGridView dgvListaPrendas;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Tipo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Marca;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Talla;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Color;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Precio;
         private System.Windows.Forms.Button btAgregar;
         private System.Windows.Forms.Button btActualizar;
         private System.Windows.Forms.Button btEliminar;
-        private System.Windows.Forms.ErrorProvider errorProvider1;
-        private System.Windows.Forms.ErrorProvider errorProvider2;
-        private System.Windows.Forms.Label lblNumeroPrendas;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.DataGridView dgvLista;
+        private System.Windows.Forms.Button btNuevo;
     }
 }
 

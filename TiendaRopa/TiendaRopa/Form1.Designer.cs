@@ -45,12 +45,10 @@ namespace TiendaRopa
             this.btActualizar = new System.Windows.Forms.Button();
             this.btEliminar = new System.Windows.Forms.Button();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
-            this.errorProvider2 = new System.Windows.Forms.ErrorProvider(this.components);
             this.label6 = new System.Windows.Forms.Label();
             this.lblNumeroPrendas = new System.Windows.Forms.Label();
             this.dgvLista = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).BeginInit();
             this.SuspendLayout();
             // 
@@ -188,10 +186,6 @@ namespace TiendaRopa
             // 
             this.errorProvider1.ContainerControl = this;
             // 
-            // errorProvider2
-            // 
-            this.errorProvider2.ContainerControl = this;
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -247,7 +241,6 @@ namespace TiendaRopa
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.errorProvider2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -271,7 +264,6 @@ namespace TiendaRopa
         private System.Windows.Forms.Button btActualizar;
         private System.Windows.Forms.Button btEliminar;
         private System.Windows.Forms.ErrorProvider errorProvider1;
-        private System.Windows.Forms.ErrorProvider errorProvider2;
         private System.Windows.Forms.Label lblNumeroPrendas;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.DataGridView dgvLista;

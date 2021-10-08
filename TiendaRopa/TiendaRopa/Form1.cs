@@ -21,7 +21,6 @@ namespace TiendaRopa
         public Form1()
         {
             InitializeComponent();  
-
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -31,6 +30,7 @@ namespace TiendaRopa
 
         private void btNuevo_Click(object sender, EventArgs e)
         {
+
             // TODO: Validacion de informacion con el erro..
 
             if (cboTipo.Text == "")
@@ -40,12 +40,33 @@ namespace TiendaRopa
                 return;
             }
 
+            if (cboTipo.Text == "")
+            {
+                errorProvider1.SetError(cboTipo, "Debe ingresar la identificacion del usuario");
+                cboTipo.Focus();
+                return;
+            }
+
+            if (cboTipo.Text == "")
+            {
+                errorProvider1.SetError(cboTipo, "Debe ingresar la identificacion del usuario");
+                cboTipo.Focus();
+                return;
+            }
+
+            if (cboTipo.Text == "")
+            {
+                errorProvider1.SetError(cboTipo, "Debe ingresar la identificacion del usuario");
+                cboTipo.Focus();
+                return;
+            }
 
             int talla = Convert.ToInt32(cboTalla.Text);
            
             // Validacion para el campo precion, que este no sea negativo
 
             decimal precio;
+
             if (!Decimal.TryParse(txtPrecio.Text, out precio))
             {
                 errorProvider1.SetError(txtPrecio, "Debe ingresar numeros en el campo Precio");
@@ -81,5 +102,6 @@ namespace TiendaRopa
         }
 
         
+
     }
 }

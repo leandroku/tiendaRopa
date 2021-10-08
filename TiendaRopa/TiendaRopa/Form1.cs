@@ -104,12 +104,14 @@ namespace TiendaRopa
             dgvLista.DataSource = Prendas;
 
 
-            // TODO: limpieza de campos
+            // Limpieza de campos txt
 
-
+            txtColor.Clear();
+            txtPrecio.Clear();
+            txtMarca.Clear();
 
             // Actualizacion del campop numero de prendas
-            
+
             cantidadDePrendas = Prendas.Count;
             lblNumeroPrendas.Text = Convert.ToString(cantidadDePrendas);
         

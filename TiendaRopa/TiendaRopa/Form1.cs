@@ -41,8 +41,10 @@ namespace TiendaRopa
             }
 
 
-            // TODO:Validacion para el campo precion, que este no sea negativo
-            
+            int talla = Convert.ToInt32(cboTalla.Text);
+           
+            // Validacion para el campo precion, que este no sea negativo
+
             decimal precio;
             if (!Decimal.TryParse(txtPrecio.Text, out precio))
             {
@@ -56,31 +58,24 @@ namespace TiendaRopa
 
             if (precio < 0)
             {
-                errorProvider1.SetError(txtPrecio, "Debe ingresar un numero positivo en salario    ");
+                errorProvider1.SetError(txtPrecio, "Debe ingresar un numero positivo en Precio");
                 txtPrecio.Focus();
                 return;
             }
 
-            //////////////////////////////////////////////////////////
-
-            // Agregacion de la nueva prenda al ArrayList
-
-            //Prenda casas = new Prenda("casas", "casas", "casas", 12, 12222);
-            //Prendas.Add(casas);
-
-            Prenda nuevaPrenda = new Prenda(cboTipo.Text, txtColor.Text, txtMarca.Text, Convert.ToInt32(cboTalla.Text), precio);
+            
+            Prenda nuevaPrenda = new Prenda(cboTipo.Text, txtColor.Text, txtMarca.Text, talla, precio);
             Prendas.Add(nuevaPrenda);
 
             dgvLista.DataSource = null;
             dgvLista.DataSource = Prendas;
 
 
-
             // TODO: limpieza de campos
 
 
+
             // Actualizacion del campop numero de prendas
-            
             numeroPredas = Prendas.Count;
             lblNumeroPrendas.Text = Convert.ToString(numeroPredas);
         }

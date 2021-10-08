@@ -167,7 +167,7 @@ namespace TiendaRopa
             this.btNuevaPrenda.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btNuevaPrenda.ForeColor = System.Drawing.SystemColors.Window;
             this.errorProvider1.SetIconAlignment(this.btNuevaPrenda, System.Windows.Forms.ErrorIconAlignment.MiddleLeft);
-            this.errorProvider2.SetIconAlignment(this.btNuevaPrenda, System.Windows.Forms.ErrorIconAlignment.MiddleLeft);
+            this.errorProvider1.SetIconAlignment(this.btNuevaPrenda, System.Windows.Forms.ErrorIconAlignment.MiddleLeft);
             this.btNuevaPrenda.Image = ((System.Drawing.Image)(resources.GetObject("btNuevaPrenda.Image")));
             this.btNuevaPrenda.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btNuevaPrenda.Location = new System.Drawing.Point(358, 65);

@@ -64,7 +64,7 @@ namespace TiendaRopa
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(157, 109);
+            this.label2.Location = new System.Drawing.Point(175, 45);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(39, 17);
             this.label2.TabIndex = 1;
@@ -73,7 +73,7 @@ namespace TiendaRopa
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(157, 166);
+            this.label3.Location = new System.Drawing.Point(175, 101);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(48, 17);
             this.label3.TabIndex = 2;
@@ -101,21 +101,21 @@ namespace TiendaRopa
             // 
             this.txtMarca.Location = new System.Drawing.Point(23, 129);
             this.txtMarca.Name = "txtMarca";
-            this.txtMarca.Size = new System.Drawing.Size(100, 22);
+            this.txtMarca.Size = new System.Drawing.Size(121, 22);
             this.txtMarca.TabIndex = 5;
             // 
             // txtColor
             // 
             this.txtColor.Location = new System.Drawing.Point(23, 186);
             this.txtColor.Name = "txtColor";
-            this.txtColor.Size = new System.Drawing.Size(100, 22);
+            this.txtColor.Size = new System.Drawing.Size(121, 22);
             this.txtColor.TabIndex = 6;
             // 
             // txtPrecio
             // 
-            this.txtPrecio.Location = new System.Drawing.Point(160, 186);
+            this.txtPrecio.Location = new System.Drawing.Point(178, 129);
             this.txtPrecio.Name = "txtPrecio";
-            this.txtPrecio.Size = new System.Drawing.Size(100, 22);
+            this.txtPrecio.Size = new System.Drawing.Size(134, 22);
             this.txtPrecio.TabIndex = 7;
             // 
             // cboTipo
@@ -140,14 +140,14 @@ namespace TiendaRopa
             "G/L",
             "EG/XL",
             "EEG/XXL"});
-            this.cboTalla.Location = new System.Drawing.Point(160, 129);
+            this.cboTalla.Location = new System.Drawing.Point(178, 65);
             this.cboTalla.Name = "cboTalla";
-            this.cboTalla.Size = new System.Drawing.Size(121, 24);
+            this.cboTalla.Size = new System.Drawing.Size(134, 24);
             this.cboTalla.TabIndex = 9;
             // 
             // btNuevaPrenda
             // 
-            this.btNuevaPrenda.Location = new System.Drawing.Point(336, 65);
+            this.btNuevaPrenda.Location = new System.Drawing.Point(402, 36);
             this.btNuevaPrenda.Name = "btNuevaPrenda";
             this.btNuevaPrenda.Size = new System.Drawing.Size(75, 23);
             this.btNuevaPrenda.TabIndex = 11;
@@ -157,7 +157,7 @@ namespace TiendaRopa
             // 
             // btAgregar
             // 
-            this.btAgregar.Location = new System.Drawing.Point(336, 109);
+            this.btAgregar.Location = new System.Drawing.Point(402, 80);
             this.btAgregar.Name = "btAgregar";
             this.btAgregar.Size = new System.Drawing.Size(75, 23);
             this.btAgregar.TabIndex = 12;
@@ -166,7 +166,7 @@ namespace TiendaRopa
             // 
             // btActualizar
             // 
-            this.btActualizar.Location = new System.Drawing.Point(436, 65);
+            this.btActualizar.Location = new System.Drawing.Point(502, 36);
             this.btActualizar.Name = "btActualizar";
             this.btActualizar.Size = new System.Drawing.Size(75, 23);
             this.btActualizar.TabIndex = 13;
@@ -175,7 +175,7 @@ namespace TiendaRopa
             // 
             // btEliminar
             // 
-            this.btEliminar.Location = new System.Drawing.Point(436, 109);
+            this.btEliminar.Location = new System.Drawing.Point(502, 80);
             this.btEliminar.Name = "btEliminar";
             this.btEliminar.Size = new System.Drawing.Size(75, 23);
             this.btEliminar.TabIndex = 14;
@@ -189,7 +189,7 @@ namespace TiendaRopa
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(355, 186);
+            this.label6.Location = new System.Drawing.Point(427, 166);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(135, 17);
             this.label6.TabIndex = 15;
@@ -199,7 +199,7 @@ namespace TiendaRopa
             // 
             this.lblNumeroPrendas.AccessibleRole = System.Windows.Forms.AccessibleRole.TitleBar;
             this.lblNumeroPrendas.AutoSize = true;
-            this.lblNumeroPrendas.Location = new System.Drawing.Point(496, 186);
+            this.lblNumeroPrendas.Location = new System.Drawing.Point(568, 166);
             this.lblNumeroPrendas.Name = "lblNumeroPrendas";
             this.lblNumeroPrendas.Size = new System.Drawing.Size(0, 17);
             this.lblNumeroPrendas.TabIndex = 16;

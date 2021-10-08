@@ -15,13 +15,13 @@ namespace TiendaRopa
     public partial class Form1 : Form
     {
 
-        static int numeroPredas;
+        static int cantidadDePrendas;
+
         ArrayList Prendas = new ArrayList();
 
         public Form1()
         {
             InitializeComponent();  
-
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -31,19 +31,54 @@ namespace TiendaRopa
 
         private void btNuevo_Click(object sender, EventArgs e)
         {
-            // TODO: Validacion de informacion con el erro..
+
+            // Validacion de informacion con el erro..
 
             if (cboTipo.Text == "")
             {
-                errorProvider1.SetError(cboTipo, "Debe ingresar la identificacion del usuario");
+                errorProvider1.SetError(cboTipo, "Debe ingresar el tipo de prenda");
                 cboTipo.Focus();
                 return;
             }
 
+            if (txtMarca.Text == "")
+            {
+                errorProvider1.SetError(txtMarca, "Debe ingresar la marca de la prenda");
+                txtMarca.Focus();
+                return;
+            }
 
-            // TODO:Validacion para el campo precion, que este no sea negativo
-            
+            if (txtColor.Text == "")
+            {
+                errorProvider1.SetError(txtColor, "Debe ingresar el color de la prenda");
+                txtColor.Focus();
+                return;
+            }
+
+            // Validacion para el campo talla, que este no sea negativo
+
+            int talla;
+
+            if (!Int32.TryParse(cboTalla.Text, out talla))
+            {
+                errorProvider1.SetError(cboTalla, "Debe ingresar numeros en el campo Talla de prenda");
+                cboTalla.Focus();
+                return;
+            }
+
+            // Validacion de que el valor ingresado en talla no sea negativo
+
+            if (talla < 0)
+            {
+                errorProvider1.SetError(cboTalla, "Debe ingresar un numero positivo en Talla");
+                cboTalla.Focus();
+                return;
+            }
+
+            // Validacion para el campo precion, que este sea un numero
+
             decimal precio;
+
             if (!Decimal.TryParse(txtPrecio.Text, out precio))
             {
                 errorProvider1.SetError(txtPrecio, "Debe ingresar numeros en el campo Precio");
@@ -51,40 +86,36 @@ namespace TiendaRopa
                 return;
             }
 
-            // Validacion de que el valor ingresado en precio no sea negativo, pues ninguna 
-            // prenda puede tener un precio negativo.
+            // Validacion de que el valor ingresado en precio no sea negativo
 
             if (precio < 0)
             {
-                errorProvider1.SetError(txtPrecio, "Debe ingresar un numero positivo en salario    ");
+                errorProvider1.SetError(txtPrecio, "Debe ingresar un numero positivo en Precio");
                 txtPrecio.Focus();
                 return;
             }
 
-            //////////////////////////////////////////////////////////
 
-            // Agregacion de la nueva prenda al ArrayList
-
-            //Prenda casas = new Prenda("casas", "casas", "casas", 12, 12222);
-            //Prendas.Add(casas);
-
-            Prenda nuevaPrenda = new Prenda(cboTipo.Text, txtColor.Text, txtMarca.Text, Convert.ToInt32(cboTalla.Text), precio);
+            Prenda nuevaPrenda = new Prenda(cboTipo.Text, txtColor.Text, txtMarca.Text, talla, precio);
+            
             Prendas.Add(nuevaPrenda);
 
             dgvLista.DataSource = null;
             dgvLista.DataSource = Prendas;
 
 
-
             // TODO: limpieza de campos
+
 
 
             // Actualizacion del campop numero de prendas
             
-            numeroPredas = Prendas.Count;
-            lblNumeroPrendas.Text = Convert.ToString(numeroPredas);
+            cantidadDePrendas = Prendas.Count;
+            lblNumeroPrendas.Text = Convert.ToString(cantidadDePrendas);
+        
         }
 
         
+
     }
 }

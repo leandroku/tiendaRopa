@@ -12,14 +12,14 @@ using TallerTiendaRopa;
 
 namespace TiendaRopa
 {
-    public partial class Form1 : Form
+    public partial class PagPrincipal : Form
     {
 
         static int cantidadDePrendas;
 
         ArrayList Prendas = new ArrayList();
 
-        public Form1()
+        public PagPrincipal()
         {
             InitializeComponent();  
         }

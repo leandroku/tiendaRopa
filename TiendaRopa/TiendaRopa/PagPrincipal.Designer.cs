@@ -1,7 +1,7 @@
 ﻿
 namespace TiendaRopa
 {
-    partial class Form1
+    partial class PagPrincipal
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -30,7 +30,7 @@ namespace TiendaRopa
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(PagPrincipal));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -148,14 +148,14 @@ namespace TiendaRopa
             // 
             this.cboTalla.FormattingEnabled = true;
             this.cboTalla.Items.AddRange(new object[] {
-            "CH/S",
-            "M/M",
-            "G/L",
-            "EG/XL",
-            "EEG/XXL"});
+            "36",
+            "38",
+            "40",
+            "42",
+            "44"});
             this.cboTalla.Location = new System.Drawing.Point(160, 129);
             this.cboTalla.Name = "cboTalla";
-            this.cboTalla.Size = new System.Drawing.Size(121, 24);
+            this.cboTalla.Size = new System.Drawing.Size(100, 24);
             this.cboTalla.TabIndex = 9;
             // 
             // btNuevaPrenda
@@ -166,7 +166,6 @@ namespace TiendaRopa
             this.btNuevaPrenda.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btNuevaPrenda.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btNuevaPrenda.ForeColor = System.Drawing.SystemColors.Window;
-            this.errorProvider1.SetIconAlignment(this.btNuevaPrenda, System.Windows.Forms.ErrorIconAlignment.MiddleLeft);
             this.errorProvider1.SetIconAlignment(this.btNuevaPrenda, System.Windows.Forms.ErrorIconAlignment.MiddleLeft);
             this.btNuevaPrenda.Image = ((System.Drawing.Image)(resources.GetObject("btNuevaPrenda.Image")));
             this.btNuevaPrenda.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -188,7 +187,7 @@ namespace TiendaRopa
             this.label6.BackColor = System.Drawing.Color.Transparent;
             this.label6.Font = new System.Drawing.Font("Arial Rounded MT Bold", 10.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.ForeColor = System.Drawing.SystemColors.Window;
-            this.label6.Location = new System.Drawing.Point(385, 186);
+            this.label6.Location = new System.Drawing.Point(382, 175);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(191, 22);
             this.label6.TabIndex = 15;
@@ -198,9 +197,12 @@ namespace TiendaRopa
             // 
             this.lblNumeroPrendas.AccessibleRole = System.Windows.Forms.AccessibleRole.TitleBar;
             this.lblNumeroPrendas.AutoSize = true;
-            this.lblNumeroPrendas.Location = new System.Drawing.Point(496, 186);
+            this.lblNumeroPrendas.BackColor = System.Drawing.Color.Green;
+            this.lblNumeroPrendas.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNumeroPrendas.ForeColor = System.Drawing.SystemColors.Window;
+            this.lblNumeroPrendas.Location = new System.Drawing.Point(468, 207);
             this.lblNumeroPrendas.Name = "lblNumeroPrendas";
-            this.lblNumeroPrendas.Size = new System.Drawing.Size(0, 17);
+            this.lblNumeroPrendas.Size = new System.Drawing.Size(0, 23);
             this.lblNumeroPrendas.TabIndex = 16;
             // 
             // dgvLista
@@ -212,17 +214,17 @@ namespace TiendaRopa
             this.dgvLista.Name = "dgvLista";
             this.dgvLista.RowHeadersWidth = 51;
             this.dgvLista.RowTemplate.Height = 24;
-            this.dgvLista.Size = new System.Drawing.Size(626, 150);
+            this.dgvLista.Size = new System.Drawing.Size(700, 150);
             this.dgvLista.TabIndex = 17;
             // 
-            // Form1
+            // PagPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.HotTrack;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.ClientSize = new System.Drawing.Size(685, 419);
+            this.ClientSize = new System.Drawing.Size(746, 419);
             this.Controls.Add(this.dgvLista);
             this.Controls.Add(this.lblNumeroPrendas);
             this.Controls.Add(this.label6);
@@ -239,8 +241,8 @@ namespace TiendaRopa
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.ImeMode = System.Windows.Forms.ImeMode.Hiragana;
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "PagPrincipal";
+            this.Text = "Tienda POO";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).EndInit();

@@ -242,7 +242,7 @@ namespace TiendaRopa
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.ImeMode = System.Windows.Forms.ImeMode.Hiragana;
             this.Name = "PagPrincipal";
-            this.Text = "Tienda POO";
+            this.Text = "Tienda de Prendas POO";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLista)).EndInit();

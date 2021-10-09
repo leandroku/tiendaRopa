@@ -32,7 +32,7 @@ namespace TiendaRopa
         private void btNuevo_Click(object sender, EventArgs e)
         {
 
-            // Validacion de informacion con el erro..
+            // Validacion de informacion 
 
             if (cboTipo.Text == "")
             {
@@ -116,8 +116,5 @@ namespace TiendaRopa
             lblNumeroPrendas.Text = Convert.ToString(cantidadDePrendas);
         
         }
-
-        
-
     }
 }

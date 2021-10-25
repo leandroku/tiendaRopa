@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -21,13 +22,163 @@ namespace TiendaRopa
 
         public PagPrincipal()
         {
-            InitializeComponent();  
+            InitializeComponent();
+
+            Mostrar();
+
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            dgvLista.DataSource = Prendas;
+            //dgvLista.DataSource = Prendas;                      
+
         }
+
+        public void Mostrar()
+        {
+            var conexion = new SqlConnection("Data Source=LEANDROPC\\SQLEXPRESS;Initial Catalog=bdtiendaropa;Integrated Security=T" +
+            "rue");            
+            
+            var consulta = "SELECT * FROM dtprenda";
+
+            var comando = new SqlCommand(consulta, conexion);
+
+            conexion.Open();
+
+            var lector = comando.ExecuteReader();
+
+            dgvLista.Columns.Clear();
+            dgvLista.Rows.Clear();
+
+            dgvLista.Columns.Add("id_prenda", "id prenda");
+            dgvLista.Columns.Add("tipo", "tipo");
+            dgvLista.Columns.Add("marca", "marca");
+            dgvLista.Columns.Add("talla", "talla");
+            dgvLista.Columns.Add("color", "color");
+            dgvLista.Columns.Add("precio", "precio");
+
+            while (lector.Read())
+            {
+                dgvLista.Rows.Add(
+                    lector["id_prenda"], lector["tipo"], lector["Marca"], lector["Talla"], lector["Color"], lector["Precio"]
+                );
+            }
+
+            
+            int contador2 = dgvLista.Rows.Count - 1;
+            lblNumeroPrendas.Text = lblNumeroPrendas.Text + contador2;
+
+            conexion.Close();
+        }
+
+        public void Agregar()
+        {
+            var conexion = new SqlConnection("Data Source=LEANDROPC\\SQLEXPRESS;Initial Catalog=bdtiendaropa;Integrated Security=T" +
+            "rue");
+
+            var tipo = cboTipo.Text;
+            var marca = txtMarca.Text;
+            var talla = cboTalla.Text;
+            var color = txtColor.Text;
+            var precio = txtPrecio.Text;
+
+            var consulta = "INSERT INTO dtprenda (tipo, marca, talla, color, precio) VALUES('" + tipo + "','" + marca + "','" + talla + "','" + color + "','" + precio + "')";
+                                    
+            var comando = new SqlCommand(consulta, conexion);
+
+            conexion.Open();
+
+            var cantidadDeRegistros = comando.ExecuteNonQuery();
+
+            if (cantidadDeRegistros > 0)
+            {
+                MessageBox.Show("Prenda Agregada");
+            }
+            else
+            {
+                MessageBox.Show("No se Agrego la Prenda");
+            }
+
+            conexion.Close();
+        }
+
+        public void Modificar()
+        {
+            var conexion = new SqlConnection("Data Source=LEANDROPC\\SQLEXPRESS;Initial Catalog=bdtiendaropa;Integrated Security=T" +
+            "rue");
+
+            var id = txtId.Text;
+            var tipo = cboTipo.Text;
+            var marca = txtMarca.Text;
+            var talla = cboTalla.Text;
+            var color = txtColor.Text;
+            var precio = txtPrecio.Text;
+
+            var consulta = "UPDATE dtprenda SET tipo = '" + tipo + "', marca = '" + marca + "', talla = '" + talla + "', color = '" + color + "', precio = '" + precio + "' WHERE id_prenda='" + id + "'";
+
+            var comando = new SqlCommand(consulta, conexion);
+
+            conexion.Open();
+
+            var cantidadDeRegistros = comando.ExecuteNonQuery();
+
+            if (cantidadDeRegistros > 0)
+            {
+                MessageBox.Show("prenda actualizada");
+            }
+            else
+            {
+                MessageBox.Show("prenda no actualizada");
+            }
+
+            conexion.Close();
+
+        }
+
+        public void Eliminar()
+        {
+            var conexion = new SqlConnection("Data Source=LEANDROPC\\SQLEXPRESS;Initial Catalog=bdtiendaropa;Integrated Security=T" +
+            "rue");
+
+            var id = txtId.Text;
+
+            var consulta = "DELETE FROM dtprenda WHERE id_prenda='"+id+"'";
+
+            var comando = new SqlCommand(consulta, conexion);
+
+            conexion.Open();
+
+            var cantidadDeRegistros = comando.ExecuteNonQuery();
+
+            if (cantidadDeRegistros > 0)
+            {
+                MessageBox.Show("prenda Eliminada");
+            }
+            else
+            {
+                MessageBox.Show("prenda no Eliminada");
+            }
+
+            conexion.Close();
+
+        }
+
+        public void Actualizar()
+        {
+            dgvLista.Columns.Clear();
+
+            Mostrar();
+
+        }
+
+        public void limpiar()
+        {
+            txtId.Clear();
+            txtMarca.Clear();
+            txtColor.Clear();
+            txtPrecio.Clear();
+        }
+
 
         private void btNuevo_Click(object sender, EventArgs e)
         {
@@ -95,27 +246,47 @@ namespace TiendaRopa
                 return;
             }
 
+            Agregar();
 
-            Prenda nuevaPrenda = new Prenda(cboTipo.Text, txtColor.Text, txtMarca.Text, talla, precio);
-            
-            Prendas.Add(nuevaPrenda);
-
-            dgvLista.DataSource = null;
-            dgvLista.DataSource = Prendas;
-
-
-            // TODO: limpieza de campos
-
-
-
-            // Actualizacion del campop numero de prendas
-            
-            cantidadDePrendas = Prendas.Count;
-            lblNumeroPrendas.Text = Convert.ToString(cantidadDePrendas);
+            Actualizar();            
         
         }
 
         
 
+        private void dgvLista_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                txtId.Text = dgvLista.CurrentRow.Cells[0].Value.ToString();
+                cboTipo.Text = dgvLista.CurrentRow.Cells[1].Value.ToString();
+                txtMarca.Text = dgvLista.CurrentRow.Cells[2].Value.ToString();
+                cboTalla.Text = dgvLista.CurrentRow.Cells[3].Value.ToString();
+                txtColor.Text = dgvLista.CurrentRow.Cells[4].Value.ToString();
+                txtPrecio.Text = dgvLista.CurrentRow.Cells[5].Value.ToString();
+            }
+            catch
+            {
+
+            }
+            
+        }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            Modificar();
+            Actualizar();
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            Eliminar();
+            Actualizar();
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            limpiar();
+        }
     }
 }

@@ -30,26 +30,27 @@ namespace TiendaRopa
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            //dgvLista.DataSource = Prendas;                      
+                                 
 
         }
-
+        //metodo para mostar los registros de la base de datos 
         public void Mostrar()
         {
-            var conexion = new SqlConnection("Data Source=LEANDROPC\\SQLEXPRESS;Initial Catalog=bdtiendaropa;Integrated Security=T" +
+            //conexion a la base de datos
+            var conexion = new SqlConnection("Data Source=PC-SISTEMAS\\SQLEXPRESS;Initial Catalog=bdtiendaropa;Integrated Security=T" +
             "rue");            
-            
+            //consulta a realizar en la base de datos
             var consulta = "SELECT * FROM dtprenda";
-
+            //enviar solicitud a la base de datos
             var comando = new SqlCommand(consulta, conexion);
-
+            // abrir conexion
             conexion.Open();
 
             var lector = comando.ExecuteReader();
-
+            // limpiar la DataGridView
             dgvLista.Columns.Clear();
             dgvLista.Rows.Clear();
-
+            // copiar los tados de la base de datos a la DataGridView
             dgvLista.Columns.Add("id_prenda", "id prenda");
             dgvLista.Columns.Add("tipo", "tipo");
             dgvLista.Columns.Add("marca", "marca");
@@ -63,17 +64,18 @@ namespace TiendaRopa
                     lector["id_prenda"], lector["tipo"], lector["Marca"], lector["Talla"], lector["Color"], lector["Precio"]
                 );
             }
-
-            
-            int contador2 = dgvLista.Rows.Count - 1;
-            lblNumeroPrendas.Text = lblNumeroPrendas.Text + contador2;
-
+            //contabilizar el numero de prendas en la DataGridView
+            lblNumeroPrendas.Text = "";
+            int contador = dgvLista.Rows.Count - 1;
+            lblNumeroPrendas.Text = lblNumeroPrendas.Text + contador;
+            //cerrar conexion
             conexion.Close();
         }
 
+        //metodo para agregar prendas en la base de datos
         public void Agregar()
         {
-            var conexion = new SqlConnection("Data Source=LEANDROPC\\SQLEXPRESS;Initial Catalog=bdtiendaropa;Integrated Security=T" +
+            var conexion = new SqlConnection("Data Source=PC-SISTEMAS\\SQLEXPRESS;Initial Catalog=bdtiendaropa;Integrated Security=T" +
             "rue");
 
             var tipo = cboTipo.Text;
@@ -102,9 +104,10 @@ namespace TiendaRopa
             conexion.Close();
         }
 
+        //metodo para modificar registros en la base de datos
         public void Modificar()
         {
-            var conexion = new SqlConnection("Data Source=LEANDROPC\\SQLEXPRESS;Initial Catalog=bdtiendaropa;Integrated Security=T" +
+            var conexion = new SqlConnection("Data Source=PC-SISTEMAS\\SQLEXPRESS;Initial Catalog=bdtiendaropa;Integrated Security=T" +
             "rue");
 
             var id = txtId.Text;
@@ -135,9 +138,10 @@ namespace TiendaRopa
 
         }
 
+        //metodo para eliminar prendas en la base de datos
         public void Eliminar()
         {
-            var conexion = new SqlConnection("Data Source=LEANDROPC\\SQLEXPRESS;Initial Catalog=bdtiendaropa;Integrated Security=T" +
+            var conexion = new SqlConnection("Data Source=PC-SISTEMAS\\SQLEXPRESS;Initial Catalog=bdtiendaropa;Integrated Security=T" +
             "rue");
 
             var id = txtId.Text;
@@ -163,6 +167,7 @@ namespace TiendaRopa
 
         }
 
+        //metodo para actualizar la DataGridView
         public void Actualizar()
         {
             dgvLista.Columns.Clear();
@@ -171,6 +176,7 @@ namespace TiendaRopa
 
         }
 
+        // metodo para limpiar los textbox
         public void limpiar()
         {
             txtId.Clear();
@@ -252,8 +258,9 @@ namespace TiendaRopa
         
         }
 
-        
 
+        /*metodo que permite copiar los datos de la DataGridView que hayan sido
+        seleccionados y pegarlos en los textbox conrrespondientes*/
         private void dgvLista_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             try

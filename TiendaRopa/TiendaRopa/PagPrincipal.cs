@@ -36,9 +36,8 @@ namespace TiendaRopa
 
         public void Mostrar()
         {
-            //conexion a la base de datos
             var conexion = new SqlConnection(Properties.Settings.Default.cn);
-            // comando para visualizar la tabla dtprenda
+
             var consulta = "SELECT * FROM dtprenda";
 
             var comando = new SqlCommand(consulta, conexion);
@@ -73,33 +72,27 @@ namespace TiendaRopa
 
         public void Agregar()
         {
-            //conexion a la base de datos
             var conexion = new SqlConnection(Properties.Settings.Default.cn);
 
-            //tomando los datos de las cajas de texto y colocandolas en variables
             var tipo = cboTipo.Text;
             var marca = txtMarca.Text;
             var talla = cboTalla.Text;
             var color = txtColor.Text;
             var precio = txtPrecio.Text;
 
-            // metodo para conectar con el procedimiento almacenado
+
             var cmd = new SqlCommand("SP_AGREGAR", conexion);
 
-            //almacenando los datos en las variables del procedimiento almacenado
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add(new SqlParameter("@TIPO", tipo));
             cmd.Parameters.Add(new SqlParameter("@MARCA", marca));
             cmd.Parameters.Add(new SqlParameter("@TALLA", talla));
             cmd.Parameters.Add(new SqlParameter("@COLOR", color));
             cmd.Parameters.Add(new SqlParameter("@PRECIO", precio));
-
-            // Abrir la conexion
             conexion.Open();
 
-            // verificar si se realizaron los cambios 
             var cantidadDeRegistros = cmd.ExecuteNonQuery();
-           
+
             if (cantidadDeRegistros > 0)
             {
                 MessageBox.Show("Prenda creada");
@@ -114,10 +107,8 @@ namespace TiendaRopa
 
         public void Modificar()
         {
-            //conexion a la base de datos
             var conexion = new SqlConnection(Properties.Settings.Default.cn);
 
-            //tomando los datos de las cajas de texto y colocandolas en variables
             var id = txtId.Text;
             var tipo = cboTipo.Text;
             var marca = txtMarca.Text;
@@ -125,10 +116,9 @@ namespace TiendaRopa
             var color = txtColor.Text;
             var precio = txtPrecio.Text;
 
-            // metodo para conectar con el procedimiento almacenado
+
             var cmd = new SqlCommand("SP_ACTUALIZAR", conexion);
 
-            //almacenando los datos en las variables del procedimiento almacenado
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add(new SqlParameter("@ID_PRENDA", id));
             cmd.Parameters.Add(new SqlParameter("@TIPO", tipo));
@@ -136,11 +126,8 @@ namespace TiendaRopa
             cmd.Parameters.Add(new SqlParameter("@TALLA", talla));
             cmd.Parameters.Add(new SqlParameter("@COLOR", color));
             cmd.Parameters.Add(new SqlParameter("@PRECIO", precio));
-
-            // Abrir la conexion
             conexion.Open();
 
-            // verificar si se realizaron los cambios 
             var cantidadDeRegistros = cmd.ExecuteNonQuery();
 
             if (cantidadDeRegistros > 0)
@@ -158,23 +145,17 @@ namespace TiendaRopa
 
         public void Eliminar()
         {
-            //conexion a la base de datos
             var conexion = new SqlConnection(Properties.Settings.Default.cn);
 
-            //tomando el datos de las cajas id y colocandola en variable
             var id = txtId.Text;
 
-            // metodo para conectar con el procedimiento almacenado
             var cmd = new SqlCommand("SP_ELIMINAR", conexion);
 
-            //almacenando el dato en la variables ID_PRENDA del procedimiento almacenado
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.Parameters.Add(new SqlParameter("@ID_PRENDA", id));
 
-            // Abrir la conexion
             conexion.Open();
 
-            // verificar si se realizaron los cambios 
             var cantidadDeRegistros = cmd.ExecuteNonQuery();
 
             if (cantidadDeRegistros > 0)

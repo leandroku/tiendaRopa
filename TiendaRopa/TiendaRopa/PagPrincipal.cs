@@ -30,27 +30,25 @@ namespace TiendaRopa
 
         private void Form1_Load(object sender, EventArgs e)
         {
-                                 
+            //dgvLista.DataSource = Prendas;                      
 
         }
-        //metodo para mostar los registros de la base de datos 
+
         public void Mostrar()
         {
-            //conexion a la base de datos
-            var conexion = new SqlConnection("Data Source=PC-SISTEMAS\\SQLEXPRESS;Initial Catalog=bdtiendaropa;Integrated Security=T" +
-            "rue");            
-            //consulta a realizar en la base de datos
+            var conexion = new SqlConnection(Properties.Settings.Default.cn);
+
             var consulta = "SELECT * FROM dtprenda";
-            //enviar solicitud a la base de datos
+
             var comando = new SqlCommand(consulta, conexion);
-            // abrir conexion
+
             conexion.Open();
 
             var lector = comando.ExecuteReader();
-            // limpiar la DataGridView
+
             dgvLista.Columns.Clear();
             dgvLista.Rows.Clear();
-            // copiar los tados de la base de datos a la DataGridView
+
             dgvLista.Columns.Add("id_prenda", "id prenda");
             dgvLista.Columns.Add("tipo", "tipo");
             dgvLista.Columns.Add("marca", "marca");
@@ -64,19 +62,17 @@ namespace TiendaRopa
                     lector["id_prenda"], lector["tipo"], lector["Marca"], lector["Talla"], lector["Color"], lector["Precio"]
                 );
             }
-            //contabilizar el numero de prendas en la DataGridView
+
             lblNumeroPrendas.Text = "";
-            int contador = dgvLista.Rows.Count - 1;
-            lblNumeroPrendas.Text = lblNumeroPrendas.Text + contador;
-            //cerrar conexion
+            int contador2 = dgvLista.Rows.Count - 1;
+            lblNumeroPrendas.Text = lblNumeroPrendas.Text + contador2;
+
             conexion.Close();
         }
 
-        //metodo para agregar prendas en la base de datos
         public void Agregar()
         {
-            var conexion = new SqlConnection("Data Source=PC-SISTEMAS\\SQLEXPRESS;Initial Catalog=bdtiendaropa;Integrated Security=T" +
-            "rue");
+            var conexion = new SqlConnection(Properties.Settings.Default.cn);
 
             var tipo = cboTipo.Text;
             var marca = txtMarca.Text;
@@ -84,31 +80,34 @@ namespace TiendaRopa
             var color = txtColor.Text;
             var precio = txtPrecio.Text;
 
-            var consulta = "INSERT INTO dtprenda (tipo, marca, talla, color, precio) VALUES('" + tipo + "','" + marca + "','" + talla + "','" + color + "','" + precio + "')";
-                                    
-            var comando = new SqlCommand(consulta, conexion);
 
+            var cmd = new SqlCommand("SP_AGREGAR", conexion);
+
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add(new SqlParameter("@TIPO", tipo));
+            cmd.Parameters.Add(new SqlParameter("@MARCA", marca));
+            cmd.Parameters.Add(new SqlParameter("@TALLA", talla));
+            cmd.Parameters.Add(new SqlParameter("@COLOR", color));
+            cmd.Parameters.Add(new SqlParameter("@PRECIO", precio));
             conexion.Open();
 
-            var cantidadDeRegistros = comando.ExecuteNonQuery();
+            var cantidadDeRegistros = cmd.ExecuteNonQuery();
 
             if (cantidadDeRegistros > 0)
             {
-                MessageBox.Show("Prenda Agregada");
+                MessageBox.Show("Prenda creada");
             }
             else
             {
-                MessageBox.Show("No se Agrego la Prenda");
+                MessageBox.Show("No se creó la Prenda");
             }
 
             conexion.Close();
         }
 
-        //metodo para modificar registros en la base de datos
         public void Modificar()
         {
-            var conexion = new SqlConnection("Data Source=PC-SISTEMAS\\SQLEXPRESS;Initial Catalog=bdtiendaropa;Integrated Security=T" +
-            "rue");
+            var conexion = new SqlConnection(Properties.Settings.Default.cn);
 
             var id = txtId.Text;
             var tipo = cboTipo.Text;
@@ -117,42 +116,47 @@ namespace TiendaRopa
             var color = txtColor.Text;
             var precio = txtPrecio.Text;
 
-            var consulta = "UPDATE dtprenda SET tipo = '" + tipo + "', marca = '" + marca + "', talla = '" + talla + "', color = '" + color + "', precio = '" + precio + "' WHERE id_prenda='" + id + "'";
 
-            var comando = new SqlCommand(consulta, conexion);
+            var cmd = new SqlCommand("SP_ACTUALIZAR", conexion);
 
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add(new SqlParameter("@ID_PRENDA", id));
+            cmd.Parameters.Add(new SqlParameter("@TIPO", tipo));
+            cmd.Parameters.Add(new SqlParameter("@MARCA", marca));
+            cmd.Parameters.Add(new SqlParameter("@TALLA", talla));
+            cmd.Parameters.Add(new SqlParameter("@COLOR", color));
+            cmd.Parameters.Add(new SqlParameter("@PRECIO", precio));
             conexion.Open();
 
-            var cantidadDeRegistros = comando.ExecuteNonQuery();
+            var cantidadDeRegistros = cmd.ExecuteNonQuery();
 
             if (cantidadDeRegistros > 0)
             {
-                MessageBox.Show("prenda actualizada");
+                MessageBox.Show("Prenda Modificada");
             }
             else
             {
-                MessageBox.Show("prenda no actualizada");
+                MessageBox.Show("No se pudo modificar la Prenda");
             }
 
             conexion.Close();
 
         }
 
-        //metodo para eliminar prendas en la base de datos
         public void Eliminar()
         {
-            var conexion = new SqlConnection("Data Source=PC-SISTEMAS\\SQLEXPRESS;Initial Catalog=bdtiendaropa;Integrated Security=T" +
-            "rue");
+            var conexion = new SqlConnection(Properties.Settings.Default.cn);
 
             var id = txtId.Text;
 
-            var consulta = "DELETE FROM dtprenda WHERE id_prenda='"+id+"'";
+            var cmd = new SqlCommand("SP_ELIMINAR", conexion);
 
-            var comando = new SqlCommand(consulta, conexion);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.Add(new SqlParameter("@ID_PRENDA", id));
 
             conexion.Open();
 
-            var cantidadDeRegistros = comando.ExecuteNonQuery();
+            var cantidadDeRegistros = cmd.ExecuteNonQuery();
 
             if (cantidadDeRegistros > 0)
             {
@@ -167,7 +171,6 @@ namespace TiendaRopa
 
         }
 
-        //metodo para actualizar la DataGridView
         public void Actualizar()
         {
             dgvLista.Columns.Clear();
@@ -176,7 +179,6 @@ namespace TiendaRopa
 
         }
 
-        // metodo para limpiar los textbox
         public void limpiar()
         {
             txtId.Clear();
@@ -254,13 +256,12 @@ namespace TiendaRopa
 
             Agregar();
 
-            Actualizar();            
-        
+            Actualizar();
+
         }
 
 
-        /*metodo que permite copiar los datos de la DataGridView que hayan sido
-        seleccionados y pegarlos en los textbox conrrespondientes*/
+
         private void dgvLista_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             try
@@ -276,7 +277,7 @@ namespace TiendaRopa
             {
 
             }
-            
+
         }
 
         private void btnModificar_Click(object sender, EventArgs e)

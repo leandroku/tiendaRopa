@@ -128,7 +128,7 @@ namespace TiendaRopa
             using (bdtiendaropaEntities bd = new bdtiendaropaEntities())
             {
                 // se crea el objeto NPD que busca el id de la prenda
-                var NPD = bd.dtprenda.Find(int.Parse(txtId.Text));
+                dtprenda NPD = bd.dtprenda.Find(int.Parse(txtId.Text));
                 NPD.tipo = cboTipo.Text;
                 NPD.marca = txtMarca.Text;
                 NPD.talla = int.Parse(cboTalla.Text);
@@ -136,7 +136,7 @@ namespace TiendaRopa
                 NPD.precio = int.Parse(txtPrecio.Text);
 
                 //insert del objeto a la base de datos 
-                bd.Entry(NPD).CurrentValues.SetValues(txtId);
+                bd.Entry(NPD).CurrentValues.SetValues(bd);
                 //enviar la consulta a la base de datos 
                 bd.SaveChanges();
 

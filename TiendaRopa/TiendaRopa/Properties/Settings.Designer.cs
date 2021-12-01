@@ -26,8 +26,8 @@ namespace TiendaRopa.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=LEANDROPC\\SQLEXPRESS;Initial Catalog=bdtiendaropa;Integrated Security" +
-            "=True")]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=PC-SISTEMAS\\SQLEXPRESS;Initial Catalog=bdtiendaropa;Integrated Securi" +
+            "ty=True")]
         public string cn {
             get {
                 return ((string)(this["cn"]));

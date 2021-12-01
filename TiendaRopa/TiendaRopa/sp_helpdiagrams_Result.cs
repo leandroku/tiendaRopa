@@ -10,15 +10,13 @@
 namespace TiendaRopa
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class dtprenda
+    public partial class sp_helpdiagrams_Result
     {
-        public int id_prenda { get; set; }
-        public string tipo { get; set; }
-        public string marca { get; set; }
-        public int talla { get; set; }
-        public string color { get; set; }
-        public int precio { get; set; }
+        public string Database { get; set; }
+        public string Name { get; set; }
+        public int ID { get; set; }
+        public string Owner { get; set; }
+        public int OwnerID { get; set; }
     }
 }

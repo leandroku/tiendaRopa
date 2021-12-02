@@ -36,13 +36,7 @@ namespace TiendaRopa
 
         public void Mostrar()
         {
-            //metodo para visualizar base de datos en DataGridView mediante EF
-            using (bdtiendaropaEntities bd = new bdtiendaropaEntities())
-            {
-                dgvLista.DataSource = bd.dtprenda.ToList();
-            }
-            
-            /*var conexion = new SqlConnection(Properties.Settings.Default.cn);
+            var conexion = new SqlConnection(Properties.Settings.Default.cn);
 
             var consulta = "SELECT * FROM dtprenda";
 
@@ -73,7 +67,7 @@ namespace TiendaRopa
             int contador2 = dgvLista.Rows.Count - 1;
             lblNumeroPrendas.Text = lblNumeroPrendas.Text + contador2;
 
-            conexion.Close();*/
+            conexion.Close();
         }
 
         public void Agregar()

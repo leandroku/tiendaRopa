@@ -72,25 +72,7 @@ namespace TiendaRopa
 
         public void Agregar()
         {
-            //conexion a la base de datos
-            using (bdtiendaropaEntities bd = new bdtiendaropaEntities())
-            {
-                // se crea el objeto NPD
-                dtprenda NPD = new dtprenda();
-                NPD.tipo = cboTipo.Text;
-                NPD.marca = txtMarca.Text;
-                NPD.talla = int.Parse(cboTalla.Text);
-                NPD.color = txtColor.Text;
-                NPD.precio = int.Parse(txtPrecio.Text);
-
-                //insert del objeto a la base de datos 
-                bd.dtprenda.Add(NPD);
-                //enviar la consulta a la base de datos 
-                bd.SaveChanges();
-
-            }
-
-            /*var conexion = new SqlConnection(Properties.Settings.Default.cn);
+            var conexion = new SqlConnection(Properties.Settings.Default.cn);
 
             var tipo = cboTipo.Text;
             var marca = txtMarca.Text;
@@ -120,29 +102,12 @@ namespace TiendaRopa
                 MessageBox.Show("No se creó la Prenda");
             }
 
-            conexion.Close();*/
+            conexion.Close();
         }
 
         public void Modificar()
         {
-            using (bdtiendaropaEntities bd = new bdtiendaropaEntities())
-            {
-                // se crea el objeto NPD que busca el id de la prenda
-                dtprenda NPD = bd.dtprenda.Find(int.Parse(txtId.Text));
-                NPD.tipo = cboTipo.Text;
-                NPD.marca = txtMarca.Text;
-                NPD.talla = int.Parse(cboTalla.Text);
-                NPD.color = txtColor.Text;
-                NPD.precio = int.Parse(txtPrecio.Text);
-
-                //insert del objeto a la base de datos 
-                bd.Entry(NPD).CurrentValues.SetValues(bd);
-                //enviar la consulta a la base de datos 
-                bd.SaveChanges();
-
-            }
-
-            /*var conexion = new SqlConnection(Properties.Settings.Default.cn);
+            var conexion = new SqlConnection(Properties.Settings.Default.cn);
 
             var id = txtId.Text;
             var tipo = cboTipo.Text;
@@ -174,7 +139,7 @@ namespace TiendaRopa
                 MessageBox.Show("No se pudo modificar la Prenda");
             }
 
-            conexion.Close();*/
+            conexion.Close();
 
         }
 

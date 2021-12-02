@@ -19,6 +19,6 @@ namespace TiendaRopa
         public string marca { get; set; }
         public int talla { get; set; }
         public string color { get; set; }
-        public int precio { get; set; }
+        public decimal precio { get; set; }
     }
 }
